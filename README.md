@@ -1,21 +1,34 @@
-This is an implementation of Kate Compton's [Tracery](https://github.com/galaxykate/tracery) language in pure lua. The library takes a recursive approach to managing generative state, and returns any un-popped rules that have been pushed to the stack during the course of generation.
+**A fix of tracery-lua for [L5](https://l5lua.org)**. tracery-lua is an implementation of Kate Compton's [Tracery](https://github.com/galaxykate/tracery) language in pure lua. The library takes a recursive approach to managing generative state, and returns any un-popped rules that have been pushed to the stack during the course of generation.
 
 ## Basic usage
 
 ```lua
-local tracery = require "tracery"
+require('L5')
+tracery = require "tracery"
 
-local testGrammar = {
-  origin = "#group.a# of #animal.s# #number#",
-  animal = {"zebra", "osprey", "rhinoceros", "cassowary", "donkey", "eel part"},
-  group = {"group", "herd", "flock", "murder"},
-  number = function() return 10 end,
+local ourText = {
+  greeting = {
+    "Hello!",
+    "Top of the morning to ya!",
+    "The best part of waking up is Folger's in your cup,",
+  },
+  person = {"stranger, sailor", "mom"},
+  occurrence = {"talking to a #person#"},
+  origin = {
+    "#greeting# #person.capitalize#. I couldn't help but notice you #occurrence#."
+  }
 }
 
-local grammar = tracery.createGrammar(testGrammar)
-grammer:addModifiers(tracery.baseEngModifiers)
-local text, data = grammar:flatten("You see #origin#")
+function setup()
+  --start up Tracery
+  local grammar = tracery.createGrammar(ourText)
+  --add modifiers
+  grammar:addModifiers(tracery.baseEngModifiers)
+  --save output as a string
+  local text, data = grammar:flatten("#origin#")
 
+  print(text)
+end
 ```
 
 # API

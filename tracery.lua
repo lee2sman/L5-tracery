@@ -59,7 +59,7 @@ expand = function(self, rule, context)
   setmetatable(localContext, {__index = context})
   
   if type(rule) == "table" then
-    rule = rule[math.random(#rule)]
+    rule = rule[love.math.random(#rule)]
   elseif type(rule) == "function" then
     rule = tostring(rule())
   elseif rule == nil then
