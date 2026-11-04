@@ -1,4 +1,6 @@
-**A fix of tracery-lua for [L5](https://l5lua.org)**. tracery-lua is an implementation of Kate Compton's [Tracery](https://github.com/galaxykate/tracery) language in pure lua. The library takes a recursive approach to managing generative state, and returns any un-popped rules that have been pushed to the stack during the course of generation.
+**UPDATE: This REPO HAS BEEN UPDATED AND MOVED TO L5'S CODEBERG ORG. Visit [L5-Tracery on Codeberg](https://codeberg.org/l5lua/l5-tracery).**
+
+A fix of tracery-lua for [L5](https://l5lua.org). tracery-lua is an implementation of Kate Compton's [Tracery](https://github.com/galaxykate/tracery) language in pure lua. The library takes a recursive approach to managing generative state, and returns any un-popped rules that have been pushed to the stack during the course of generation.
 
 ## Basic usage
 
