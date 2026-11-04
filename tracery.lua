@@ -11,7 +11,7 @@ local function isVowel(text)
          text == "u"
 end
 
-local baseEngModifiers = {
+baseEngModifiers = {
   capitalize = function(text)
     return text:sub(1,1):upper()..text:sub(2)
   end,
@@ -170,7 +170,7 @@ expand = function(self, rule, context)
   return rule
 end
 
-local function createGrammar(grammar)
+function createGrammar(grammar)
   -- Create a proxy context to add overriding rules to
   local context
   if grammar then
